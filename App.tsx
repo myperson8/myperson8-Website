@@ -12,11 +12,12 @@ import Footer from './components/Footer';
 const Home: React.FC = () => {
   const handleLogoError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;
-    const githubUrl = `https://github.com/${SETTINGS.socials.github.username}.png`;
     
-    if (target.src.includes('unavatar.io')) {
-      target.src = githubUrl;
-    } else if (target.src === githubUrl) {
+    // First fallback to GitHub (highly reliable)
+    if (target.src !== SETTINGS.profile.fallbackAvatarUrl) {
+      target.src = SETTINGS.profile.fallbackAvatarUrl;
+    } else {
+      // Final fallback to UI Avatars if even GitHub is down (unlikely)
       target.src = `https://ui-avatars.com/api/?name=${SETTINGS.profile.displayName}&background=3b82f6&color=fff&size=200`;
     }
   };

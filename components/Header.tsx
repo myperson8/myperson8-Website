@@ -26,6 +26,13 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
     }
   };
 
+  const handleLogoError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    if (target.src !== SETTINGS.profile.fallbackAvatarUrl) {
+      target.src = SETTINGS.profile.fallbackAvatarUrl;
+    }
+  };
+
   const tabs = [
     { id: 'home', label: 'Home' },
     { id: 'github', label: 'GitHub' },
@@ -44,6 +51,7 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
         >
           <img 
             src={SETTINGS.profile.avatarUrl} 
+            onError={handleLogoError}
             className="w-10 h-10 rounded-xl shadow-lg border-2 border-white dark:border-slate-700 object-cover"
             alt="Logo"
           />

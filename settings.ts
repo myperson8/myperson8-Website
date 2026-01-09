@@ -8,7 +8,10 @@ export const SETTINGS = {
   profile: {
     name: "myperson8",
     displayName: "myperson8",
-    avatarUrl: "https://unavatar.io/youtube/@myperson8", 
+    // unavatar.io is sometimes unreliable with the @ symbol or specific handles.
+    // We'll use a robust fallback chain in the components.
+    avatarUrl: "https://unavatar.io/youtube/myperson8", 
+    fallbackAvatarUrl: "https://github.com/myperson8.png",
     tagline: "Software Engineer • Gamer • Content Creator",
     bio: "Building the future of the web, one commit at a time. Catch me streaming late-night coding or high-stakes gameplay. Welcome to my digital corner.",
     location: "Global",
