@@ -124,7 +124,7 @@ See the [LICENSE](LICENSE) file for details.
 
 ## 🔗 Links
 
-- **Portfolio**: https://myperson8.dev
+- **Portfolio**: https://myperson8.vercel.app
 - **GitHub**: https://github.com/myperson8
 - **YouTube**: https://youtube.com/@myperson8
 

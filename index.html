@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>myperson8 | Digital Portfolio</title>
+    <meta name="title" content="myperson8 | Digital Portfolio">
+    <meta name="description" content="Official personal hub for myperson8. Explore my GitHub repositories, YouTube content, and community connections.">
+    <meta name="keywords" content="myperson8, software engineer, gamer, content creator, portfolio, github, youtube">
+    <meta name="author" content="myperson8">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://myperson8.dev">
+    <meta property="og:title" content="myperson8 | Digital Portfolio">
+    <meta property="og:description" content="Building the future of the web, one commit at a time. Welcome to my digital corner.">
+    <meta property="og:image" content="https://unavatar.io/youtube/@myperson8">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://myperson8.dev">
+    <meta property="twitter:title" content="myperson8 | Digital Portfolio">
+    <meta property="twitter:description" content="Building the future of the web, one commit at a time. Welcome to my digital corner.">
+    <meta property="twitter:image" content="https://unavatar.io/youtube/@myperson8">
+
+    <!-- Favicons & App Icons -->
+    <link rel="icon" type="image/png" href="https://unavatar.io/youtube/@myperson8">
+    <link rel="apple-touch-icon" href="https://unavatar.io/youtube/@myperson8">
+    <link rel="mask-icon" href="https://unavatar.io/youtube/@myperson8" color="#3b82f6">
+    <meta name="theme-color" content="#0f172a">
+    
+    <!-- Performance Preconnects -->
+    <link rel="preconnect" href="https://api.github.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unavatar.io">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .gradient-text {
+            background: linear-gradient(90deg, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom scrollbar */
+        .dark ::-webkit-scrollbar {
+            width: 8px;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-dark dark:text-slate-50">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
