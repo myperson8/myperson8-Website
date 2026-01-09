@@ -14,7 +14,7 @@ export const SETTINGS = {
     fallbackAvatarUrl: "https://github.com/myperson8.png",
     tagline: "Software Engineer • Gamer • Content Creator",
     bio: "Building the future of the web, one commit at a time. Catch me streaming late-night coding or high-stakes gameplay. Welcome to my digital corner.",
-    location: "Global",
+    location: "India",
     email: "contact@myperson8.dev",
   },
   socials: {
