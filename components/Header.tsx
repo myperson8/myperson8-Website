@@ -1,13 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { SETTINGS } from '../settings';
 
-interface HeaderProps {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
+const Header: React.FC = () => {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
@@ -34,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   };
 
   const tabs = [
-    { id: 'home', label: 'Home' },
+    { id: '', label: 'Home' },
     { id: 'github', label: 'GitHub' },
     { id: 'youtube', label: 'YouTube' },
     { id: 'twitch', label: 'Twitch' },
@@ -42,12 +38,19 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
     { id: 'discord', label: 'Discord' },
   ];
 
+  const linkClass = ({ isActive }: { isActive: boolean }) => 
+    `px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
+      isActive
+        ? 'bg-blue-600 text-white shadow-xl shadow-blue-500/30 active:scale-95'
+        : 'text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+    }`;
+
   return (
     <header className="sticky top-0 z-50 glass-card border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
       <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div 
-          className="text-2xl font-bold cursor-pointer hover:opacity-80 transition flex items-center gap-2"
-          onClick={() => setActiveTab('home')}
+        <Link 
+          to="/"
+          className="text-2xl font-bold hover:opacity-80 transition flex items-center gap-2"
         >
           <img 
             src={SETTINGS.profile.avatarUrl} 
@@ -55,22 +58,18 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             className="w-10 h-10 rounded-xl shadow-lg border-2 border-white dark:border-slate-700 object-cover"
             alt="Logo"
           />
-          <span className="text-blue-600 dark:text-blue-500">my</span>person8
-        </div>
+          <span>myperson8</span>
+        </Link>
         
         <nav className="flex flex-wrap justify-center items-center gap-1 sm:gap-2">
           {tabs.map((tab) => (
-            <button
+            <NavLink
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
-                activeTab === tab.id
-                  ? 'bg-blue-600 text-white shadow-xl shadow-blue-500/30 active:scale-95'
-                  : 'text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
-              }`}
+              to={`/${tab.id}`}
+              className={linkClass}
             >
               {tab.label}
-            </button>
+            </NavLink>
           ))}
           
           <button

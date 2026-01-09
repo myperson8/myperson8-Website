@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { SETTINGS } from './settings';
 import Header from './components/Header';
 import GitHubSection from './components/GitHubSection';
@@ -76,23 +77,27 @@ const Home: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('home');
-
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0f172a] text-slate-900 dark:text-slate-50 selection:bg-blue-600/30 transition-colors duration-500">
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
-      
-      <main className="flex-grow container mx-auto px-6 py-12 max-w-7xl">
-        {activeTab === 'home' && <Home />}
-        {activeTab === 'github' && <GitHubSection />}
-        {activeTab === 'youtube' && <YouTubeSection />}
-        {activeTab === 'twitch' && <TwitchSection />}
-        {activeTab === 'twitter' && <TwitterSection />}
-        {activeTab === 'discord' && <DiscordSection />}
-      </main>
+    <BrowserRouter>
+      <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0f172a] text-slate-900 dark:text-slate-50 selection:bg-blue-600/30 transition-colors duration-500">
+        <Header />
+        
+        <main className="flex-grow container mx-auto px-6 py-12 max-w-7xl">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/github" element={<GitHubSection />} />
+            <Route path="/youtube" element={<YouTubeSection />} />
+            <Route path="/twitch" element={<TwitchSection />} />
+            <Route path="/twitter" element={<TwitterSection />} />
+            <Route path="/discord" element={<DiscordSection />} />
+            {/* Fallback to Home */}
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 };
 
